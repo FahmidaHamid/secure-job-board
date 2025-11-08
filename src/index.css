@@ -2,6 +2,27 @@
 @plugin "daisyui" {
   themes: cupcake --default, dark;
 }
+
+ .app-container {
+      display: flex;
+      /* Or use grid for more complex layouts */
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0; /* This makes it stick to the top of its parent container */
+      height: 100vh; /* Optional: Make sidebar full height */
+      /* Add other styling for your sidebar */
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .content {
+      flex-grow: 1; /* Allows content to take up remaining space */
+      padding: 20px;
+      /* Add enough content to make it scrollable */
+    }
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
