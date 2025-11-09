@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10000">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -24,23 +24,25 @@ const NavBar = () => {
             </svg>
           </div>
           <ul
-            tabIndex="-1"
-            className="menu z-1000 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            tabIndex="0"
+            className="menu z-100 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
+            <li onClick={() => document.activeElement.blur()}>
               <Link to="/">Homepage</Link>
             </li>
-            <li>
+            <li onClick={() => document.activeElement.blur()}>
               <Link to="/all-jobs">All Jobs</Link>
             </li>
-            <li>
+            <li onClick={() => document.activeElement.blur()}>
               <Link to="/about-us">About Us</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">
+          Share & Grow: Your Local Job Hub
+        </a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

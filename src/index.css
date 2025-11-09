@@ -3,26 +3,22 @@
   themes: cupcake --default, dark;
 }
 
- .app-container {
-      display: flex;
-      /* Or use grid for more complex layouts */
-    }
+body {
+  padding-top: 60px; /* Adjust based on your header's height */
+  padding-bottom: 60px; /* Adjust based on your footer's height */
+}
 
-    .sidebar {
-      position: sticky;
-      top: 0; /* This makes it stick to the top of its parent container */
-      height: 100vh; /* Optional: Make sidebar full height */
-      /* Add other styling for your sidebar */
-      width: 200px;
-      background-color: #f0f0f0;
-      padding: 20px;
-    }
+.card:hover {
+  transform: scale(1.1); /* Increase size by 20% on hover */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for transform over 0.5 seconds */
+  z-index: 10;
+}
 
-    .content {
-      flex-grow: 1; /* Allows content to take up remaining space */
-      padding: 20px;
-      /* Add enough content to make it scrollable */
-    }
+.content {
+  flex-grow: 1; /* Allows content to take up remaining space */
+  padding: 20px;
+  /* Add enough content to make it scrollable */
+}
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
