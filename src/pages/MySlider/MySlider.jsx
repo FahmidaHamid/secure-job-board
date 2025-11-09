@@ -1,10 +1,5 @@
-import React from "react";
-import { FiVideo } from "react-icons/fi";
 import { LoremPicsum } from "react-lorem-picsum";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-import { useSnapCarousel } from "react-snap-carousel";
+
 const data = [
   {
     username: "JobSeekerJane",
@@ -99,41 +94,69 @@ const data = [
 ];
 
 const MySlider = () => {
-  const { scrollRef, next, prev } = useSnapCarousel();
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-  };
-
+  const repeatedChildren = [...data, ...data];
   return (
-    <div className="w-2/10 m-auto h-[950px]">
-      <div className="mt-20">
-        {/* <Slider {...settings}> */}
-        {data.map((d) => (
-          <div className="bg-white text-blue-600  rounded-xl">
-            <div className="rounded-t-xl h-[400px] bg-blue-300 flex justify-center items-center">
-              <LoremPicsum
-                width={250}
-                height={250}
-                random
-                className="rounded-full"
-              />
+    <div className="m-20">
+      <h1 className="text-3xl title-text m-2 text-center">
+        What our users feel about this platform ...
+      </h1>
+      <div className="carousel carousel-container carousel-center bg-blue-100 rounded-box space-x-1 p-1 m-2 group">
+        <div className="carousel-item carousel-track">
+          {repeatedChildren.map((d, index) => (
+            <div
+              key={index}
+              className="carousel-card bg-white text-blue-600  rounded-xl max-w-96 m-2 p-2 h-[600px] flex flex-col"
+            >
+              <div className="rounded-t-xl h-[300px] bg-blue-300 flex justify-center items-center">
+                <LoremPicsum
+                  width={250}
+                  height={250}
+                  random
+                  className="rounded-full"
+                />
+              </div>
+              <div className="flex flex-col h-[300px] justify-center items-center p-1 gap-4 word-wrap">
+                <p className="text-3xl font-bold">{d.username}</p>
+                <div className="successStory text-wrap">
+                  <p className="text-lg text-black mt-2">
+                    {d.successStory.slice(0, 100)}...
+                  </p>
+                </div>
+                <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
+                  Read more
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col justify-center items-center p-3 gap-4">
-              <p className="text-3xl font-bold">{d.username}</p>
-              <p className="text-lg text-black">{d.successStory}</p>
-              <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
-                Read more
-              </button>
-            </div>
-          </div>
-        ))}
-        {/* </Slider> */}
+          ))}
+        </div>
       </div>
     </div>
+
+    // <div className="w-2/10 m-auto h-[950px]">
+    //   <div className="mt-20">
+    //     {/* <Slider {...settings}> */}
+    //     {data.map((d) => (
+    //       <div className="bg-white text-blue-600  rounded-xl">
+    //         <div className="rounded-t-xl h-[400px] bg-blue-300 flex justify-center items-center">
+    //           <LoremPicsum
+    //             width={250}
+    //             height={250}
+    //             random
+    //             className="rounded-full"
+    //           />
+    //         </div>
+    //         <div className="flex flex-col justify-center items-center p-3 gap-4">
+    //           <p className="text-3xl font-bold">{d.username}</p>
+    //           <p className="text-lg text-black">{d.successStory}</p>
+    //           <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
+    //             Read more
+    //           </button>
+    //         </div>
+    //       </div>
+    //     ))}
+    //     {/* </Slider> */}
+    //   </div>
+    // </div>
   );
 };
 

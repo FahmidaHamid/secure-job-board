@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import { TbAperture } from "react-icons/tb";
+import transparentLogo from "../../assets/transparent-logo.png";
 const NavBar = () => {
   return (
     <div
@@ -44,9 +44,10 @@ const NavBar = () => {
       </div>
       <div className="navbar-center">
         <a className="btn btn-ghost sm:text-lg md:text-xl title-text">
-          <TbAperture
-            className="sm:text-lg md:text-2xl"
-            style={{ color: "#43083d" }}
+          <img
+            src={transparentLogo}
+            alt="logo"
+            style={{ height: 60, width: 60 }}
           />
           Your Local Career Growth Hub
         </a>
