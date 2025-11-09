@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: cupcake --default, dark;
+  themes: caramellate --default, dark;
 }
 
 body {

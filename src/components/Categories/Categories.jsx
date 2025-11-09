@@ -1,7 +1,7 @@
 import React from "react";
 
 const Categories = ({ categories, selectedCat, setSelectedCat }) => {
-  //console.log("in categories", categories);
+  console.log("in categories", categories);
 
   const handleCategorySelection = (cat_item) => {
     setSelectedCat(cat_item);
@@ -23,7 +23,7 @@ const Categories = ({ categories, selectedCat, setSelectedCat }) => {
         ))}
         <button
           key={categories.length + 1}
-          onClick={() => handleCategorySelection("")}
+          onClick={() => handleCategorySelection(null)}
           className={`btn btn-soft btn-secondary bg-blue-200 w-[240px] ${
             selectedCat === "" ? "active" : ""
           }`}
