@@ -6,10 +6,12 @@ import Footer from "../../components/Footer/Footer";
 const MainPage = () => {
   return (
     <div className="min-h-screen">
-      <NavBar></NavBar>
+      <div className="m-0 top-0">
+        <NavBar></NavBar>
+      </div>
       <div
-        data-theme="cupcake"
-        className="body w-screen min-h-[68vh] flex flex-row"
+        data-theme="nord"
+        className="body w-screen min-h-[65vh] flex flex-row"
       >
         <Outlet className="content"></Outlet>
       </div>

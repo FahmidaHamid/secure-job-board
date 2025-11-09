@@ -5,6 +5,8 @@ import Home from "../pages/Home/Home";
 import AllJobs from "../pages/AllJobs/AllJobs";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Loader from "../components/Loader/Loader";
+import JobDetails from "../pages/JobDetails/JobDetails";
+import CategoryWiseCollection from "../pages/CategoryWiseCollection/CategoryWiseCollection";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,12 +18,19 @@ const router = createBrowserRouter([
       {
         index: 1,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/all-categories"),
+        // loader: () => fetch("http://localhost:3000/all-categories"),
       },
       {
         path: "/all-jobs",
         Component: AllJobs,
-        // loader: () => fetch("http://localhost:3000/all-jobs"),
+      },
+      // {
+      //   path: "jobs/:category",
+      //   Component: CategoryWiseCollection,
+      // },
+      {
+        path: "/job-details/:id",
+        Component: JobDetails,
       },
       {
         path: "/about-us",

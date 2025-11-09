@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const JobCard = ({ job }) => {
   console.log(job);
@@ -18,7 +19,9 @@ const JobCard = ({ job }) => {
           <p>${job.expectedSalary} per year</p>
           <p>{job["remote/not"]}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Show Details</button>
+            <Link to={`/job-details/${job._id}`} state={{ job: job }}>
+              <p className="btn btn-primary">Show Details</p>
+            </Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ import JobCard from "../../components/JobCard/JobCard";
 
 const CategoryWiseCollection = ({ cat }) => {
   console.log("category: ", cat);
-  // console.log("category data: ", data);
   const [filteredData, setFilteredData] = useState([]);
   const [page, setPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(4);
@@ -16,9 +15,8 @@ const CategoryWiseCollection = ({ cat }) => {
           .then((res) => res.json())
           .then((data) => {
             setFilteredData(data);
-            //console.log(" Api called!");
-            console.log(data);
-            // setLoading(false);
+
+            //console.log(data);
           });
       } catch (err) {
         console.log(err);
@@ -34,7 +32,6 @@ const CategoryWiseCollection = ({ cat }) => {
       } catch (err) {
         console.log(err);
       }
-      //do nothing
     }
     setPage(1);
   }, [cat]);

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router";
-
+import { TbAperture } from "react-icons/tb";
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10000">
+    <div
+      data-theme="lemonade"
+      className="navbar bg-base-100 shadow-sm sticky top-0 z-10000"
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -40,8 +43,12 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">
-          Share & Grow: Your Local Job Hub
+        <a className="btn btn-ghost sm:text-lg md:text-xl title-text">
+          <TbAperture
+            className="sm:text-lg md:text-2xl"
+            style={{ color: "#43083d" }}
+          />
+          Your Local Career Growth Hub
         </a>
       </div>
       <div className="navbar-end">

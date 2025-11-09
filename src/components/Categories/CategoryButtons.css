@@ -1,0 +1,21 @@
+.button-inactive {
+  background-color: #007bff; /* Default Blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button-active {
+  background-color: #28a745; /* Active Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-inactive:hover {
+  background-color: #0056b3;
+}

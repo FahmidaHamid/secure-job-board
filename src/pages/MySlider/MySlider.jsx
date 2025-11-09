@@ -1,7 +1,10 @@
 import React from "react";
-import myBackgroundImage from "../../assets/libre-clip-art-sMufYKZ1JTw-unsplash.png";
+import { FiVideo } from "react-icons/fi";
 import { LoremPicsum } from "react-lorem-picsum";
-
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+import { useSnapCarousel } from "react-snap-carousel";
 const data = [
   {
     username: "JobSeekerJane",
@@ -95,72 +98,43 @@ const data = [
   },
 ];
 
-const Home = () => {
-  const repeatedChildren = [...data, ...data];
-  return (
-    <div className="w-screen flex flex-col">
-      <div
-        style={{
-          backgroundImage: `url(${myBackgroundImage})`,
-          backgroundSize: "cover", // Optional: adjust as needed
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat", // Optional: adjust as needed
-          height: "20vh", // Example: set a height for the div
-          width: "w-screen", // Example: set a width for the div
-        }}
-        className="w-full flex flex-1 p-30 flex-wrap justify-center items-center"
-      >
-        <section className="flex flex-col justify-center items-center">
-          <h1 className="title-text sm:text-3xl md:text-6xl font-bold">
-            Career Bridge
-          </h1>
-          <h2 className="subtitle-text sm:text-lg md:text-3xl font-bold">
-            Your Truested Place To Unlock the Next Career Jump
-          </h2>
-          <section className="flex flex-col justify-center items-center gap-2 m-2">
-            <button className="btn btn-success">Login</button>
-            <button className="btn btn-warning">Register Yourself</button>
-          </section>
-        </section>
-      </div>
+const MySlider = () => {
+  const { scrollRef, next, prev } = useSnapCarousel();
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
 
-      <div className="carousel carousel-container carousel-center bg-blue-100 rounded-box space-x-1 p-1 m-2 group">
-        {/* <div className="group"> */}
-        <div className="carousel-item carousel-track">
-          {repeatedChildren.map((d, index) => (
-            <div
-              key={index}
-              className="carousel-card bg-white text-blue-600  rounded-xl max-w-96 m-2 p-2 h-[600px] flex flex-col"
-            >
-              <div className="rounded-t-xl h-[300px] bg-blue-300 flex justify-center items-center">
-                <LoremPicsum
-                  width={250}
-                  height={250}
-                  random
-                  className="rounded-full"
-                />
-              </div>
-              <div className="flex flex-col h-[300px] justify-center items-center p-1 gap-4 word-wrap">
-                <p className="text-3xl font-bold">{d.username}</p>
-                <div className="successStory text-wrap">
-                  <p className="text-lg text-black mt-2">
-                    {d.successStory.slice(0, 100)}...
-                  </p>
-                </div>
-                <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
-                  Read more
-                </button>
-              </div>
+  return (
+    <div className="w-2/10 m-auto h-[950px]">
+      <div className="mt-20">
+        {/* <Slider {...settings}> */}
+        {data.map((d) => (
+          <div className="bg-white text-blue-600  rounded-xl">
+            <div className="rounded-t-xl h-[400px] bg-blue-300 flex justify-center items-center">
+              <LoremPicsum
+                width={250}
+                height={250}
+                random
+                className="rounded-full"
+              />
             </div>
-          ))}
-        </div>
-      </div>
-      {/* </div> */}
-      <div>
-        <h1>Just Testing</h1>
+            <div className="flex flex-col justify-center items-center p-3 gap-4">
+              <p className="text-3xl font-bold">{d.username}</p>
+              <p className="text-lg text-black">{d.successStory}</p>
+              <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
+                Read more
+              </button>
+            </div>
+          </div>
+        ))}
+        {/* </Slider> */}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default MySlider;

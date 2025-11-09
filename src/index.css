@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: caramellate --default, dark;
+  themes: all;
 }
 
 body {
@@ -13,11 +13,61 @@ body {
   transition: transform 0.5s ease-in-out; /* Smooth transition for transform over 0.5 seconds */
   z-index: 10;
 }
+.title-text {
+  font-weight: bold;
+  background-image: linear-gradient(to right, #3a337c, #b04b14);
+  background-clip: text;
+  -webkit-background-clip: text; /* Vendor prefix for broader compatibility */
 
+  /* Make the text color transparent so the background is visible */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Vendor prefix for broader compatibility */
+}
+
+.subtitle-text {
+  font-weight: bold;
+  background-image: linear-gradient(to right, #b5eb13, #950b0b);
+  background-clip: text;
+  -webkit-background-clip: text; /* Vendor prefix for broader compatibility */
+
+  /* Make the text color transparent so the background is visible */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Vendor prefix for broader compatibility */
+}
 .content {
   flex-grow: 1; /* Allows content to take up remaining space */
   padding: 20px;
   /* Add enough content to make it scrollable */
+}
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  white-space: nowrap; /* Prevents cards from wrapping */
+  animation: slide-left 100s linear infinite; /* Adjust duration as needed */
+}
+
+.carousel-card {
+  flex: 0 0 auto; /* Prevents cards from shrinking */
+  padding: 1em; /* Spacing between cards */
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate by the width of the original set of cards */
+    transform: translateX(-50%);
+  }
 }
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
