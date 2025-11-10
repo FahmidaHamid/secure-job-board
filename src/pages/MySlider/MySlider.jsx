@@ -1,4 +1,5 @@
 import { LoremPicsum } from "react-lorem-picsum";
+import ShinyText from "../../components/ShinyText/ShinyText";
 
 const data = [
   {
@@ -97,8 +98,13 @@ const MySlider = () => {
   const repeatedChildren = [...data, ...data];
   return (
     <div className="m-20">
-      <h1 className="text-3xl title-text m-2 text-center">
-        What our users feel about this platform ...
+      <h1 className="text-3xl subtitle-text m-2 text-center">
+        <ShinyText
+          text="  What our users feel about this platform ..."
+          disabled={false}
+          speed={3}
+          className="custom-class"
+        />
       </h1>
       <div className="carousel carousel-container carousel-center bg-blue-100 rounded-box space-x-1 p-1 m-2 group">
         <div className="carousel-item carousel-track">

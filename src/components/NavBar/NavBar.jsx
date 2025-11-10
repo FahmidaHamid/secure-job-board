@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import ShinyText from "../ShinyText/ShinyText";
+
 import transparentLogo from "../../assets/transparent-logo.png";
 const NavBar = () => {
   return (
@@ -49,7 +51,12 @@ const NavBar = () => {
             alt="logo"
             style={{ height: 60, width: 60 }}
           />
-          Your Local Career Growth Hub
+          <ShinyText
+            text="Your Local Career Growth Hub"
+            disabled={false}
+            speed={3}
+            className="custom-class"
+          />
         </a>
       </div>
       <div className="navbar-end"></div>

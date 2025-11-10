@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AdvertCard from "./AdvertCard";
+import ShinyText from "../ShinyText/ShinyText";
 const IntroduceOurselves = () => {
   const [topThreeJobs, setTopThreeJobs] = useState([]);
   useEffect(() => {
@@ -17,8 +18,13 @@ const IntroduceOurselves = () => {
 
   return (
     <div className="w-9/12 m-10 p-3 mx-auto flex flex-col flex-1">
-      <h1 className="text-4xl title-text">
-        We have job advertisements of all sorts, all ranges, all experties
+      <h1 className="text-4xl subtitle-text">
+        <ShinyText
+          text="We have job advertisements of all sorts, all ranges, all experties"
+          disabled={false}
+          speed={3}
+          className="custom-class"
+        />
       </h1>
       <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
         {topThreeJobs.map((job) => (
