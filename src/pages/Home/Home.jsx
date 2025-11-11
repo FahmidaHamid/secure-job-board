@@ -1,11 +1,12 @@
 import React from "react";
-import myBackgroundImage from "../../assets/marten-bjork-6dW3xyQvcYE-unsplash.jpg";
+//import myBackgroundImage from "../../assets/marten-bjork-6dW3xyQvcYE-unsplash.jpg";
 import { LoremPicsum } from "react-lorem-picsum";
 import MySlider from "../MySlider/MySlider";
 import IntroduceOurselves from "../../components/IntroduceOurselves/IntroduceOurselves";
 import transparentLogo from "../../assets/transparent-logo.png";
-import ShinyText from "../../components/ShinyText/ShinyText";
+//import ShinyText from "../../components/ShinyText/ShinyText";
 import PixelTransition from "../../components/PixelTransition/PixelTransition";
+import LoginAndSignup from "../../components/LoginAndSignup/LoginAndSignup";
 
 const Home = () => {
   return (
@@ -48,7 +49,10 @@ const Home = () => {
             className="custom-pixel-card"
           />
         </section>
-        <section
+        <section className="w-1/2">
+          <LoginAndSignup></LoginAndSignup>
+        </section>
+        {/* <section
           style={{
             backgroundImage: `url(${myBackgroundImage})`,
             backgroundSize: "cover", // Optional: adjust as needed
@@ -71,8 +75,9 @@ const Home = () => {
           <section className="flex flex-col justify-center items-center gap-2 m-2">
             <button className="btn btn-success">Login</button>
             <button className="btn btn-warning">Register Yourself</button>
+            <button className="btn btn-warning">Signin via Google</button>
           </section>
-        </section>
+        </section> */}
       </div>
       <IntroduceOurselves></IntroduceOurselves>
       <MySlider></MySlider>

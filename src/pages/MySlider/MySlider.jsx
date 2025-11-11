@@ -95,6 +95,7 @@ const data = [
 ];
 
 const MySlider = () => {
+  
   const repeatedChildren = [...data, ...data];
   return (
     <div className="m-20">
@@ -137,32 +138,6 @@ const MySlider = () => {
         </div>
       </div>
     </div>
-
-    // <div className="w-2/10 m-auto h-[950px]">
-    //   <div className="mt-20">
-    //     {/* <Slider {...settings}> */}
-    //     {data.map((d) => (
-    //       <div className="bg-white text-blue-600  rounded-xl">
-    //         <div className="rounded-t-xl h-[400px] bg-blue-300 flex justify-center items-center">
-    //           <LoremPicsum
-    //             width={250}
-    //             height={250}
-    //             random
-    //             className="rounded-full"
-    //           />
-    //         </div>
-    //         <div className="flex flex-col justify-center items-center p-3 gap-4">
-    //           <p className="text-3xl font-bold">{d.username}</p>
-    //           <p className="text-lg text-black">{d.successStory}</p>
-    //           <button className="btn bg-blue-400 text-white hover:bg-blue-800 rounded-xl">
-    //             Read more
-    //           </button>
-    //         </div>
-    //       </div>
-    //     ))}
-    //     {/* </Slider> */}
-    //   </div>
-    // </div>
   );
 };
 

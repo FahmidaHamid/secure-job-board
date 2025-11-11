@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div
       data-theme="lemonade"
-      className="navbar bg-base-100 shadow-sm sticky top-0 z-10000"
+      className="navbar bg-base-100 shadow-sm fixed-nav"
     >
       <div className="navbar-start">
         <div className="dropdown">

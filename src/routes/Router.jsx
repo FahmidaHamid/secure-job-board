@@ -7,6 +7,8 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import Loader from "../components/Loader/Loader";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import CategoryWiseCollection from "../pages/CategoryWiseCollection/CategoryWiseCollection";
+import Login from "../components/LoginAndSignup/Login";
+import Register from "../components/LoginAndSignup/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         Component: AboutUs,
+      },
+      {
+        path: "/auth/login",
+        Component: Login,
+      },
+      {
+        path: "/auth/register",
+        Component: Register,
       },
     ],
   },

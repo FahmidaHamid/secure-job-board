@@ -2,7 +2,8 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import { Outlet } from "react-router";
 import Footer from "../../components/Footer/Footer";
-
+// import { Bounce, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 const MainPage = () => {
   return (
     <div className="min-h-screen">
@@ -15,6 +16,7 @@ const MainPage = () => {
       >
         <Outlet className="content"></Outlet>
       </div>
+
       <Footer></Footer>
     </div>
   );

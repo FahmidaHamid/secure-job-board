@@ -5,6 +5,12 @@
 @plugin "daisyui" {
   themes: all;
 }
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Prevents shrinking/shifting issues */
+  z-index: 1000;
+}
 
 body {
   padding-top: 60px; /* Adjust based on your header's height */
@@ -37,6 +43,18 @@ body {
   color: transparent;
   -webkit-text-fill-color: transparent; /* Vendor prefix for broader compatibility */
 }
+
+.my-link {
+  background: #93bfe7;
+  color: white; /* Optional: change text color for contrast */
+  padding: 5px 10px; /* Optional: add padding */
+  text-decoration: none; /* Optional: remove underline */
+}
+
+.my-link:hover {
+  background-color: #cd7f51;
+}
+
 .content {
   flex-grow: 1; /* Allows content to take up remaining space */
   padding: 20px;
@@ -72,13 +90,14 @@ body {
     transform: translateX(-50%);
   }
 }
+
 /* From Uiverse.io by Botwe-Felix5820 */
 button {
-  height: 3em;
-  width: 8em;
+  min-height: 3em;
+  min-width: 16em;
   border: none;
-  border-radius: 10em;
-  background: #708ca7;
+  border-radius: 3em;
+  background: #93bfe7;
   font-size: 17px;
   color: #ffffff;
   font-family: inherit;
@@ -88,6 +107,10 @@ button {
 button:hover {
   animation: shake3856 0.3s linear infinite both;
   background: #cd7f51;
+}
+
+.special-link {
+  animation: shake3856 0.3s linear infinite both;
 }
 
 @keyframes shake3856 {
