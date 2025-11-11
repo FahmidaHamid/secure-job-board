@@ -6,6 +6,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { toast } from "react-toastify";
 import { useAuth } from "../../provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { GrAnalytics } from "react-icons/gr";
 //import useDynamicPageTitle from "./DynamicPageTitle";
 
 const Login = () => {
@@ -17,7 +19,32 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { login, googleLogin } = useAuth();
+
+  const handleGoogleSignIn = async (event) => {
+    event.preventDefault();
+    googleLogin()
+      .then((result) => {
+        console.log(result);
+        toast("🦄 Welcome to the community!", {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        navigate(`${location.state ? location.state : "/"}`, {
+          state: { loginSuccess: true },
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -97,6 +124,21 @@ const Login = () => {
               </div>
               <button type="submit" className="btn btn-accent mt-4 bg-blue-300">
                 <h2 className="font-bold text-xl title-text">Login</h2>
+              </button>
+              <hr
+                style={{
+                  //   color: "rgb(128, 128, 128)",
+                  backgroundColor: "rgb(128, 128, 128)",
+                  height: 2,
+                  border: "none",
+                  marginTop: 2,
+                }}
+              />
+              <button
+                className="btn btn-primary bg-[#dd921a]"
+                onClick={handleGoogleSignIn}
+              >
+                <FcGoogle size={36} /> Login with Google
               </button>
             </fieldset>
           </form>

@@ -72,7 +72,7 @@ const Register = () => {
       className="hero flex flex-col bg-base-100 h-[90vh] p-10"
     >
       <div className="text-center lg:text-left p-5">
-        <h1 className="text-6xl font-bold subtitle-text">Register Yourself</h1>
+        <h1 className="text-6xl font-bold title-text">Register Yourself</h1>
       </div>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">

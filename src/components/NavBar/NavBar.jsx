@@ -3,7 +3,27 @@ import { Link } from "react-router";
 import ShinyText from "../ShinyText/ShinyText";
 
 import transparentLogo from "../../assets/transparent-logo.png";
+import { toast } from "react-toastify";
+import { useAuth } from "../../provider/AuthProvider";
+import {
+  FaHouseCircleCheck,
+  FaHouseCircleExclamation,
+  FaUserCheck,
+  FaUserSecret,
+} from "react-icons/fa6";
 const NavBar = () => {
+  const { currentUser, logout } = useAuth();
+
+  const handleLogout = async (event) => {
+    await logout()
+      .then(() => {
+        //console.log("logged out successfully");
+        toast("Come back soon!!!");
+      })
+      .error((e) => {
+        //console.log(e);
+      });
+  };
   return (
     <div
       data-theme="lemonade"
@@ -59,7 +79,34 @@ const NavBar = () => {
           />
         </a>
       </div>
-      <div className="navbar-end"></div>
+      <div className="navbar-end">
+        <div>
+          {currentUser && (
+            <p className="font-bold">
+              Hello, {currentUser.email.split("@")[0]}{" "}
+            </p>
+          )}
+        </div>
+        <div className="pl-1 pr-2.5">
+          {currentUser ? (
+            <p
+              onClick={handleLogout}
+              className="btn btn-info bg-[linear-gradient(to_right,#e6f7b4,#eaaeae)] flex items-center justify-center w-[108px] p-2 rounded-xl"
+            >
+              <FaHouseCircleExclamation size={24} />
+              Logout
+            </p>
+          ) : (
+            <Link
+              className="btn btn-accent bg-blue-200 px-10"
+              to="../auth/login"
+            >
+              <FaUserSecret size={24} />
+              Login
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

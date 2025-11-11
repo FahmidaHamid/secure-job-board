@@ -64,17 +64,21 @@ const LoginAndSignup = () => {
         >
           <FcGoogle size={36} /> Login with Google
         </button>
-        <AnimatedLink to="/auth/login">
-          <p className="button bg-[#dd921a] h-12 w-[276px] rounded-3xl flex gap-1 m-2 p-4 text-white text-md font-semibold justify-center items-center">
-            <LuLogIn size={36} /> Login (Email/Password)
-          </p>
-        </AnimatedLink>
-        <AnimatedLink to="/auth/register">
-          <p className="button bg-[#dd921a] h-12 w-[276px] rounded-3xl flex gap-1 m-2 p-4 text-white text-md font-semibold justify-center items-center">
-            {" "}
-            <FaRegRegistered size={24} /> Register Yourself
-          </p>
-        </AnimatedLink>
+        <Link to="/auth/login">
+          <button className="btn btn-primary">
+            <p className=" text-white text-md font-semibold flex justify-center items-center gap-2">
+              <LuLogIn size={32} /> Login (Email/Password)
+            </p>
+          </button>
+        </Link>
+        <Link to="/auth/register">
+          <button className="btn btn-primary">
+            <p className="text-white text-md font-semibold flex justify-center items-center gap-2">
+              {" "}
+              <FaRegRegistered size={32} /> Register Yourself
+            </p>
+          </button>
+        </Link>
       </div>
     </div>
   );
