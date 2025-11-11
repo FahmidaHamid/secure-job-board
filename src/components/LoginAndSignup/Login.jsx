@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useAuth } from "../../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { GrAnalytics } from "react-icons/gr";
+import Swal from "sweetalert2";
 //import useDynamicPageTitle from "./DynamicPageTitle";
 
 const Login = () => {
@@ -26,23 +27,35 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result);
-        toast("🦄 Welcome to the community!", {
-          position: "bottom-left",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
+        Swal.fire({
+          title: "Successfully Logged In",
+          icon: "success",
           draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
         });
+        // toast("🦄 Welcome to the community!", {
+        //   position: "bottom-left",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: false,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "light",
+        //   transition: Bounce,
+        // });
         navigate(`${location.state ? location.state : "/"}`, {
           state: { loginSuccess: true },
         });
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+          draggable: true,
+        });
       });
   };
 
@@ -56,7 +69,11 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-
+        Swal.fire({
+          title: "Successfully Logged In",
+          icon: "success",
+          draggable: true,
+        });
         navigate(`${location.state ? location.state : "/"}`, {
           state: { loginSuccess: true },
         });
@@ -64,7 +81,14 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         setError(errorCode);
-        toast.error(errorCode || "Login failed.");
+        //toast.error(errorCode || "Login failed.");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+          draggable: true,
+        });
       });
   };
 

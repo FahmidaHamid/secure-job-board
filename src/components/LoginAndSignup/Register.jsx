@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import hero from "../../assets/christin-hume-Hcfwew744z4-unsplash.jpg";
 import { toast } from "react-toastify";
 import { useAuth } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 //import useDynamicPageTitle from "./DynamicPageTitle";
 
@@ -49,7 +50,37 @@ const Register = () => {
         update({ displayName: name, photoURL: photoURL })
           .then(() => {
             setCurrentUser(user);
-            toast("Excellent! Registration went through successfully");
+
+            //toast("Excellent! Registration went through successfully");
+            //try-catch to add a new user
+
+            const userData = { name, email, photoURL };
+            fetch("http://localhost:3000/users", {
+              method: "POST", // The HTTP method
+              headers: {
+                "content-type": "application/json", // Inform the server that the body is JSON
+              },
+              body: JSON.stringify(userData), // The data to send, converted to a JSON string
+            })
+              .then((res) => res.json())
+              .then((result) => {
+                //console.log("after saving user: ", result);
+                if (result.insertedId) {
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title:
+                      "Registration went through successfully and your account has been created. Enjoy",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  //alert("A new user is successfully added");
+                  userData._id = result.insertedId;
+                  //const updatedUsers = [...users, userData];
+                  //setUsers(updatedUsers);
+                  e.target.reset();
+                }
+              });
           })
           .catch((error) => {
             toast("Something is not right...please try again", error);
@@ -97,6 +128,9 @@ const Register = () => {
                 name="photo"
                 className="input"
                 placeholder="photo url"
+                defaultValue={
+                  "https://i.postimg.cc/QdmMrMPn/pngtree-cartoon-user-avatar-vector-png-image-17295195.png"
+                }
               />
 
               <label className="label  text-blue-700 font-bold text-lg">
