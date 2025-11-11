@@ -19,17 +19,17 @@ const AllJobs = () => {
   }, []);
 
   return (
-    <div className="flex flex-1 flex-wrap sm:flex-col md:flex-row lg:flex-row">
-      <aside className="flex flex-col justify-center items-center m-2">
+    <div className="w-screen grid sm:grid-cols-1 md:grid-cols-3">
+      <div className="w-1/5 col-span-1 flex-1">
         <Categories
           categories={categories}
           selectedCat={selectedCat}
           setSelectedCat={setSelectedCat}
         ></Categories>
-      </aside>
-      <main className="m-8 sm:w-full md:w-3/4 flex flex-col justify-items items-center">
+      </div>
+      <div className="w-4/5 col-span-2 flex-1">
         <CategoryWiseCollection cat={selectedCat}></CategoryWiseCollection>
-      </main>
+      </div>
     </div>
   );
 };

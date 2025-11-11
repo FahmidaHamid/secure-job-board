@@ -1,0 +1,16 @@
+.hide-on-mobile {
+  display: block;
+}
+.mobile-only-icon {
+  display: none; /* Hidden by default on large screens */
+}
+
+/* Media query for screens smaller than, e.g., 768px (tablets/mobiles) */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none; /* Hide the specific items */
+  }
+  .mobile-only-icon {
+    display: block; /* Show the mobile icon/menu button */
+  }
+}

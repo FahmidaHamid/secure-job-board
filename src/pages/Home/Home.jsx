@@ -11,14 +11,18 @@ import LoginAndSignup from "../../components/LoginAndSignup/LoginAndSignup";
 const Home = () => {
   return (
     <div className="w-screen flex flex-col flex-1">
-      <div className="w-full flex flex-1 flex-wrap justify-center items-center">
-        <section className="w-1/2">
+      <div className="w-screen flex flex-1 sm:flex-col md:flex-row flex-wrap justify-center items-center">
+        <section className="sm:w-screen md:w-1/2 ">
           <PixelTransition
             firstContent={
               <img
                 src={transparentLogo}
                 alt="default pixel logo!"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "scale-down",
+                }}
               />
             }
             secondContent={
@@ -33,54 +37,47 @@ const Home = () => {
               >
                 <p
                   style={{
-                    fontWeight: 900,
-                    fontSize: "3rem",
+                    fontWeight: 600,
+                    fontSize: "2.1rem",
                     color: "#ffffff",
+                    textAlign: "center",
                   }}
                 >
-                  Bridge Your Career with Us!
+                  Bridge Your Career Gaps with Us Today! <br />
+                  There is no-one to stop you! <br />
+                </p>
+                <p
+                  style={{
+                    fontWeight: 400,
+                    fontSize: "2rem",
+                    color: "#ffffff",
+                    textAlign: "center",
+                  }}
+                >
+                  You can search and apply for as many positions as you like!{" "}
+                  <br />
+                  At the same time you can post opportunitis so others can
+                  benefit.
                 </p>
               </div>
             }
-            gridSize={12}
+            gridSize={32}
             pixelColor="#ffffff"
             once={false}
-            animationStepDuration={0.4}
+            animationStepDuration={0.5}
             className="custom-pixel-card"
           />
         </section>
-        <section className="w-1/2">
+        <section className="sm:w-screen md:w-1/2">
           <LoginAndSignup></LoginAndSignup>
         </section>
-        {/* <section
-          style={{
-            backgroundImage: `url(${myBackgroundImage})`,
-            backgroundSize: "cover", // Optional: adjust as needed
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat", // Optional: adjust as needed
-            height: "94vh", // Example: set a height for the div
-            width: "w-screen", // Example: set a width for the div
-          }}
-          className=" w-1/2 flex flex-col justify-center items-center"
-        >
-          <h1 className="title-text sm:text-3xl md:text-6xl font-bold">
-            <ShinyText
-              text="Why wait? Join ASAP!"
-              disabled={false}
-              speed={3}
-              className="custom-class"
-            />
-          </h1>
-
-          <section className="flex flex-col justify-center items-center gap-2 m-2">
-            <button className="btn btn-success">Login</button>
-            <button className="btn btn-warning">Register Yourself</button>
-            <button className="btn btn-warning">Signin via Google</button>
-          </section>
-        </section> */}
       </div>
-      <IntroduceOurselves></IntroduceOurselves>
-      <MySlider></MySlider>
+      <div className="w-screen flex flex-col flex-1">
+        <IntroduceOurselves></IntroduceOurselves>
+      </div>
+      <div className="w-screen flex flex-col flex-1">
+        <MySlider></MySlider>
+      </div>
     </div>
   );
 };

@@ -11,6 +11,8 @@ import {
   FaUserCheck,
   FaUserSecret,
 } from "react-icons/fa6";
+import "./NavBar.css";
+
 const NavBar = () => {
   const { currentUser, logout } = useAuth();
 
@@ -65,25 +67,28 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost sm:text-lg md:text-xl subtitle-text">
-          <img
-            src={transparentLogo}
-            alt="logo"
-            style={{ height: 60, width: 60 }}
-          />
-          <ShinyText
-            text="Your Local Career Growth Hub"
-            disabled={false}
-            speed={3}
-            className="custom-class"
-          />
-        </a>
+        <Link to="../">
+          <a className="btn btn-ghost sm:text-lg md:text-xl subtitle-text">
+            <img
+              src={transparentLogo}
+              alt="logo"
+              style={{ height: 60, width: 60 }}
+            />
+            <ShinyText
+              text="Your Local Career Growth Hub"
+              disabled={false}
+              speed={3}
+              className="custom-class hide-on-mobile"
+            />
+          </a>
+        </Link>
       </div>
       <div className="navbar-end">
-        <div>
+        <div className="hide-on-mobile">
           {currentUser && (
-            <p className="font-bold">
-              Hello, {currentUser.email.split("@")[0]}{" "}
+            <p className="md:font-semibold sm: text-sm pr-2">
+              Hello, {currentUser.email.split("@")[0]}
+              {"  "}
             </p>
           )}
         </div>
@@ -91,18 +96,17 @@ const NavBar = () => {
           {currentUser ? (
             <p
               onClick={handleLogout}
-              className="btn btn-info bg-[linear-gradient(to_right,#e6f7b4,#eaaeae)] flex items-center justify-center w-[108px] p-2 rounded-xl"
+              className="btn btn-info bg-[linear-gradient(to_right,#e6f7b4,#eaaeae)] flex flex-1 items-center justify-center w-[108px] p-2 rounded-xl"
             >
               <FaHouseCircleExclamation size={24} />
               Logout
             </p>
           ) : (
-            <Link
-              className="btn btn-accent bg-blue-200 px-10"
-              to="../auth/login"
-            >
-              <FaUserSecret size={24} />
-              Login
+            <Link to="../auth/login">
+              <p className="btn btn-info bg-[linear-gradient(to_right,#e6f7b4,#eaaeae)] flex flex-1 items-center justify-center w-[108px] p-2 rounded-xl">
+                <FaUserSecret size={24} />
+                Guest
+              </p>
             </Link>
           )}
         </div>
