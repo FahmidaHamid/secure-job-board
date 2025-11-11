@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import hero from "../../assets/christin-hume-Hcfwew744z4-unsplash.jpg";
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ const Register = () => {
   const { setCurrentUser, signup, update } = useAuth();
 
   const navigate = useNavigate();
-  const location = useLocation();
+  //const location = useLocation();
   const passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\\^\\$&@#]).{6,}$/;
 

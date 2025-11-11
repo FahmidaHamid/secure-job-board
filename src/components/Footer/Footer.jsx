@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <footer
         data-theme="lemonade"
-        className="footer sticky bottom-0 z-1000 sm:footer-horizontal bg-base-200 text-base-content p-10"
+        className="footer sm:footer-horizontal bg-base-200 text-base-content p-5"
       >
         <aside>
           {/* <svg

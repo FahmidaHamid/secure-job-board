@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import hero from "../../assets/andrew-neel-cckf4TsHAuw-unsplash.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import { toast } from "react-toastify";
+//import { toast } from "react-toastify";
 import { useAuth } from "../../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { GrAnalytics } from "react-icons/gr";

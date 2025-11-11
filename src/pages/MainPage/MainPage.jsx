@@ -10,13 +10,10 @@ const MainPage = () => {
       <div className="m-0 top-0">
         <NavBar></NavBar>
       </div>
-      <div
-        data-theme="nord"
-        className="body w-screen min-h-[65vh] flex flex-row"
-      >
+      <div data-theme="nord" className="body w-screen main-content">
         <Outlet className="content"></Outlet>
       </div>
-
+      <div></div>
       <Footer></Footer>
     </div>
   );

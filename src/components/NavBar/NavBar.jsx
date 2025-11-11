@@ -1,26 +1,52 @@
 import React from "react";
 import { Link } from "react-router";
 import ShinyText from "../ShinyText/ShinyText";
-
+import { useNavigate } from "react-router";
 import transparentLogo from "../../assets/transparent-logo.png";
 import { toast } from "react-toastify";
 import { useAuth } from "../../provider/AuthProvider";
 import {
-  FaHouseCircleCheck,
+  //FaHouseCircleCheck,
   FaHouseCircleExclamation,
-  FaUserCheck,
+  //FaUserCheck,
   FaUserSecret,
 } from "react-icons/fa6";
 import "./NavBar.css";
 
 const NavBar = () => {
   const { currentUser, logout } = useAuth();
+  const { navigate } = useNavigate();
+
+  const links = (
+    <>
+      <li onClick={() => document.activeElement.blur()}>
+        <Link to="/">Homepage</Link>
+      </li>
+      <li onClick={() => document.activeElement.blur()}>
+        <Link to="/all-jobs">All Jobs</Link>
+      </li>
+      <li onClick={() => document.activeElement.blur()}>
+        <Link to="/about-us">About Us</Link>
+      </li>
+      {currentUser && (
+        <>
+          <li onClick={() => document.activeElement.blur()}>
+            <Link to="/auth/profile">Profile</Link>
+          </li>
+          <li onClick={() => document.activeElement.blur()}>
+            <Link to="/add-a-job">Post A Job</Link>
+          </li>
+        </>
+      )}
+    </>
+  );
 
   const handleLogout = async (event) => {
     await logout()
       .then(() => {
         //console.log("logged out successfully");
         toast("Come back soon!!!");
+        navigate("/");
       })
       .error((e) => {
         //console.log(e);
@@ -54,21 +80,13 @@ const NavBar = () => {
             tabIndex="0"
             className="menu z-100 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li onClick={() => document.activeElement.blur()}>
-              <Link to="/">Homepage</Link>
-            </li>
-            <li onClick={() => document.activeElement.blur()}>
-              <Link to="/all-jobs">All Jobs</Link>
-            </li>
-            <li onClick={() => document.activeElement.blur()}>
-              <Link to="/about-us">About Us</Link>
-            </li>
+            {links}
           </ul>
         </div>
       </div>
       <div className="navbar-center">
         <Link to="../">
-          <a className="btn btn-ghost sm:text-lg md:text-xl subtitle-text">
+          <section className="btn btn-ghost sm:text-lg md:text-xl subtitle-text">
             <img
               src={transparentLogo}
               alt="logo"
@@ -80,7 +98,7 @@ const NavBar = () => {
               speed={3}
               className="custom-class hide-on-mobile"
             />
-          </a>
+          </section>
         </Link>
       </div>
       <div className="navbar-end">
