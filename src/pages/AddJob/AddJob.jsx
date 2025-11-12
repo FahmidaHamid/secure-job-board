@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../provider/AuthProvider";
 import hero from "../../assets/libre-clip-art-sMufYKZ1JTw-unsplash.png";
 import Swal from "sweetalert2";
@@ -7,7 +7,7 @@ const AddJob = () => {
 
   // The Regex pattern for non-negative salary (allows optional '$' and decimals)
   const nonNegativeSalaryRegex = /^\s*(\$?\s*[0-9]+(\.[0-9]+)?|\.[0-9]+)\s*$/;
-
+  const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     postedBy: currentUser.displayName,
@@ -16,7 +16,21 @@ const AddJob = () => {
     coverImage: "",
     "remote/not": "",
     summary: "",
+    category: "",
+    emailOfPostedBy: currentUser.email,
   });
+
+  useEffect(() => {
+    try {
+      fetch("http://localhost:3000/all-categories")
+        .then((res) => res.json())
+        .then((data) => {
+          setCategories(data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   // A single handler for all inputs (text, number, date, radio)
   const handleInputChange = (event) => {
@@ -91,20 +105,15 @@ const AddJob = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      //alert("Form submitted successfully!");
 
-      // Simulation of a successful submission
-      //alert("Form submitted successfully! (Check console for data)");
-
-      // Optional: Clear form fields after successful submission
       setFormData({
         title: "",
-        postedBy: "",
         expectedSalary: "",
         lastDateToApply: "",
         "remote/not": "",
         coverImage: "",
         summary: "",
+        category: "",
       });
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -130,10 +139,9 @@ const AddJob = () => {
       <div className="text-center lg:text-left p-5">
         <h1 className="text-6xl font-bold title-text">Post A Job</h1>
       </div>
-      <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl ">
+      <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-xl ">
         <div className="card-body flex flex-col justify-self-center">
           <form onSubmit={handleSubmit}>
-            {/* <h2>Job Application Form</h2> */}
             <div className="text-xl flex flex-1 flex-row m-3 p-3 gap-x-1">
               <label htmlFor="title" className={labelClasses}>
                 Job Title:
@@ -163,6 +171,26 @@ const AddJob = () => {
                 required
               />
             </div>
+            <div className="text-xl flex flex-1 flex-row m-3 p-3 gap-x-1">
+              <label htmlFor="category" className={labelClasses}>
+                Pick a category:
+              </label>
+              <select
+                id="category"
+                name="category"
+                value={formData.category}
+                onChange={handleInputChange}
+                className={inputClasses}
+                required
+              >
+                <option value="">-- Select an Option --</option>
+                {categories.map((cat, index) => (
+                  <option key={index} value={cat.super_category}>
+                    {cat.super_category}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <div className="text-xl flex flex-1 flex-row m-3 p-3 gap-x-1">
               <label htmlFor="postedBy" className={labelClasses}>
@@ -175,12 +203,13 @@ const AddJob = () => {
                 value={formData.postedBy}
                 onChange={handleInputChange}
                 className={inputClasses}
+                defaultValue={currentUser.displayName}
                 required
               />
             </div>
             <div className="text-xl flex flex-1 flex-row m-3 p-3 gap-x-1">
               <label htmlFor="expectedSalary" className={labelClasses}>
-                Annual Salary ($):
+                Expected Annual Salary ($):
               </label>
               <input
                 type="number"
@@ -209,7 +238,9 @@ const AddJob = () => {
             </div>
 
             <fieldset className="text-xl flex flex-1 flex-row m-3 p-3 gap-x-1">
-              <legend className={labelClasses}>Job Type:</legend>
+              <legend htmlFor="remote/not" className={labelClasses}>
+                Job Type:
+              </legend>
               <label>
                 <input
                   type="radio"
