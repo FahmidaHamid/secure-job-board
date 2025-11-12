@@ -5,6 +5,19 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+/* App.css or your global stylesheet */
+.app-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  min-height: 100vh; /* Ensure container takes full viewport height */
+}
+
+.app-container > main {
+  /* Assuming MainContent renders to a <main> tag */
+  flex-grow: 1; /* Allows main content to expand and push footer down */
+}
+
 .fixed-nav {
   position: fixed;
   top: 0;
@@ -19,7 +32,7 @@ body {
 }
 
 .main-content {
-  padding-bottom: 80px; /* Use your footer's height here */
+  padding-bottom: 200px; /* Use your footer's height here */
 }
 
 .card:hover {

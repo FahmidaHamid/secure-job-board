@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <footer
         data-theme="lemonade"
-        className="footer sm:footer-horizontal bg-base-200 text-base-content p-5"
+        className="footer grow sm:footer-horizontal bg-base-200 text-base-content p-5"
       >
         <aside>
           {/* <svg

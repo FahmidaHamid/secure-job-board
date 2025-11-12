@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../provider/AuthProvider";
 import hero from "../../assets/libre-clip-art-sMufYKZ1JTw-unsplash.png";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const AddJob = () => {
   const { currentUser } = useAuth();
-
+  const instance = useAxiosSecure();
   // The Regex pattern for non-negative salary (allows optional '$' and decimals)
   const nonNegativeSalaryRegex = /^\s*(\$?\s*[0-9]+(\.[0-9]+)?|\.[0-9]+)\s*$/;
   const [categories, setCategories] = useState([]);
@@ -77,13 +78,14 @@ const AddJob = () => {
 
     console.log("Submitting data to database:", formData);
     try {
-      const response = await fetch("http://localhost:3000/all-jobs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // const response = await fetch("http://localhost:3000/all-jobs", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+      const response = instance.post("/all-jobs", formData);
 
       if (!response.ok) {
         // throw new Error("Network Response Was Not Okay");
@@ -96,8 +98,8 @@ const AddJob = () => {
         });
       }
 
-      const result = await response.json();
-      console.log("Success:", result);
+      //const result = await response.json();
+      console.log("Success:", response);
       Swal.fire({
         position: "top-end",
         icon: "success",
