@@ -41,7 +41,7 @@ const CategoryWiseCollection = ({ cat }) => {
   let currentPoll = filteredData.slice(firstPageIndex, lastPageIndex);
 
   return (
-    <div className=" mt-10 grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+    <div className=" m-auto mt-20 grid sm:grid-cols-1 md:grid-cols-2 gap-3">
       {currentPoll.map((job) => (
         <JobCard key={job._id} job={job} />
       ))}

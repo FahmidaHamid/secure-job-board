@@ -8,8 +8,8 @@ const JobDetails = () => {
   const { job } = location.state || {};
 
   return (
-    <div className="m-10 mx-auto">
-      <div className="grid grid-cols-2">
+    <div className="p-10 m-auto">
+      <div className="mt-20 grid grid-cols-2">
         <img
           className="w-1/2 h-[350px] object-cover mx-auto"
           src={job.coverImage}

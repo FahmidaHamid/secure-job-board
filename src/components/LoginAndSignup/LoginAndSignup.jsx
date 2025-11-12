@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "../../provider/AuthProvider";
 import { toast, Bounce } from "react-toastify";
+import { FaCircleCheck } from "react-icons/fa6";
+import { SiApostrophe } from "react-icons/si";
 
 const LoginAndSignup = () => {
   const { currentUser, googleLogin } = useAuth();
@@ -49,14 +51,33 @@ const LoginAndSignup = () => {
     >
       <div className="flex flex-col justify-center items-center gap-y-3">
         {currentUser ? (
-          <h1 className="title-text text-center sm:text-2xl md:text-7xl font-semibold">
-            <ShinyText
-              text="Explore the Infinite opportunities"
-              disabled={false}
-              speed={3}
-              className="custom-class"
-            />
-          </h1>
+          <div className="flex flex-1 flex-col justify-center items-center gap-y-5">
+            <h1 className="title-text text-center sm:text-2xl md:text-7xl font-semibold">
+              <ShinyText
+                text="Explore the Infinite opportunities"
+                disabled={false}
+                speed={3}
+                className="custom-class"
+              />
+            </h1>
+            <button className="btn btn-primary ">
+              {" "}
+              <Link to="">
+                <p className="flex flex-1 gap-1 title-text font-bold">
+                  <FaCircleCheck size={24} className="text-blue-900" /> Check
+                  out new job postings
+                </p>
+              </Link>
+            </button>
+            <button className="btn btn-primary ">
+              <Link to="">
+                <p className="flex flex-1 gap-1 title-text font-bold">
+                  <SiApostrophe size={24} className="text-blue-900" /> Post New
+                  Jobs
+                </p>
+              </Link>
+            </button>
+          </div>
         ) : (
           <h1 className="title-text sm:text-3xl md:text-6xl font-bold">
             <ShinyText

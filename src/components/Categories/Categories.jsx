@@ -4,12 +4,13 @@ import CategoryButtons from "./CategoryButtons";
 
 const Categories = ({ categories, selectedCat, setSelectedCat }) => {
   const handleCategorySelection = (cat_item) => {
-    if (cat_item !== null) setSelectedCat(cat_item);
+    if (cat_item !== "") setSelectedCat(cat_item);
+    else setSelectedCat(null);
   };
 
   return (
     <>
-      <div className="sticky top-20 m-10 flex flex-col space-x-1 space-y-1">
+      <div className="sticky  mt-20 ml-10 flex flex-col space-x-1 space-y-1">
         {categories.map((cat_item) => (
           //<CategoryButtons categoryTitle={cat_item.super_category} />
           <button
