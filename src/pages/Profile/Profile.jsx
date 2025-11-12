@@ -1,5 +1,5 @@
 import { useAuth } from "../../provider/AuthProvider";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Profile = () => {
   const { currentUser } = useAuth();
@@ -39,7 +39,9 @@ const Profile = () => {
         <div className="w-2/5 flex flex-1 flex-col">
           <button>Display Jobs I Applied</button>
           <br />
-          <button>Display Jobs I Added</button>
+          <Link to="/jobs-i-added">
+            <button>Display Jobs I Added</button>
+          </Link>
         </div>
       </div>
     </div>

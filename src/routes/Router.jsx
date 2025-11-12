@@ -12,6 +12,7 @@ import Register from "../components/LoginAndSignup/Register";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoute from "./PrivateRoute";
 import AddJob from "../pages/AddJob/AddJob";
+import JobsIAdded from "../components/JobsIAdded/JobsIAdded";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddJob></AddJob>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/jobs-i-added",
+        element: (
+          <PrivateRoute>
+            <JobsIAdded></JobsIAdded>
           </PrivateRoute>
         ),
       },
