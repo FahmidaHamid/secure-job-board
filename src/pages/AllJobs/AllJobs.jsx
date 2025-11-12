@@ -19,7 +19,7 @@ const AllJobs = () => {
   }, []);
 
   return (
-    <div className="w-screen grid sm:grid-cols-1 md:grid-cols-3">
+    <div className="w-screen mt-5 grid sm:grid-cols-1 md:grid-cols-3">
       <div className="w-1/5 col-span-1 flex-1">
         <Categories
           categories={categories}

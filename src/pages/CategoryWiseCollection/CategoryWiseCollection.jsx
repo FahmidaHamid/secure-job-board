@@ -9,14 +9,14 @@ const CategoryWiseCollection = ({ cat }) => {
   const [postsPerPage, setPostsPerPage] = useState(4);
 
   useEffect(() => {
-    if (cat === null) {
+    if (!cat) {
       try {
         fetch(`http://localhost:3000/all-jobs`)
           .then((res) => res.json())
           .then((data) => {
             setFilteredData(data);
 
-            //console.log(data);
+            console.log(data);
           });
       } catch (err) {
         console.log(err);

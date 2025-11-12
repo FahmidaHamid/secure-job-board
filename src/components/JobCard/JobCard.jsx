@@ -4,13 +4,17 @@ import { Link } from "react-router";
 const JobCard = ({ job }) => {
   console.log(job);
   return (
-    <div className="flex-grow flex-shrink-0 basis-full sm:basis-1/3">
+    <div className="flex basis-full sm:basis-1/3">
       <div className="card card-side bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 shadow-lg border-2 border-blue-100">
         <figure>
           <img
-            src={job.coverImage}
+            src={
+              job.coverImage
+                ? job.coverImage
+                : "https://i.postimg.cc/23pKdgQk/dummy-category.jpg"
+            }
             alt="Movie"
-            className="w-[250px] h-[250px] mx-auto"
+            className="w-[220px] h-[220px]"
           />
         </figure>
         <div className="card-body">

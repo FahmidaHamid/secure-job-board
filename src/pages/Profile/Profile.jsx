@@ -1,11 +1,11 @@
-import React from "react";
+
 import { useAuth } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router";
 
 const Profile = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
-  console.log(currentUser);
+  
   return currentUser ? (
     <div className="w-9/12 m-2 p-2 flex flex-1 justify-center items-center">
       {currentUser?.photoURL &&

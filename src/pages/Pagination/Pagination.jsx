@@ -17,7 +17,7 @@ const Pagination = ({
       {pages.map((page, index) => (
         <button
           key={index}
-          className={`btn ${page === currentPage ? "active" : ""}`}
+          className={`btn small-button ${page === currentPage ? "active" : ""}`}
           onClick={() => setCurrenPage(page)}
         >
           {page}

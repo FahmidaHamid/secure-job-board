@@ -1,6 +1,6 @@
 import React from "react";
 //import myBackgroundImage from "../../assets/marten-bjork-6dW3xyQvcYE-unsplash.jpg";
-import { LoremPicsum } from "react-lorem-picsum";
+//import { LoremPicsum } from "react-lorem-picsum";
 import MySlider from "../MySlider/MySlider";
 import IntroduceOurselves from "../../components/IntroduceOurselves/IntroduceOurselves";
 import transparentLogo from "../../assets/transparent-logo.png";
