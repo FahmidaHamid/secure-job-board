@@ -130,6 +130,9 @@ button:hover {
   background: #e0b20a;
   color: white;
 }
+button:disabled {
+  @apply opacity-50 cursor-not-allowed bg-gray-400 text-white;
+}
 .special-link {
   animation: shake3856 0.3s linear infinite both;
 }
@@ -204,11 +207,11 @@ button:hover {
   --color-sidebar-ring: var(--sidebar-ring);
   --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
-  from {
-    backgroundPosition: 50% 50%, 50% 50%;
+    from {
+      backgroundposition: 50% 50%, 50% 50%;
     }
-  to {
-    backgroundPosition: 350% 50%, 350% 50%;
+    to {
+      backgroundposition: 350% 50%, 350% 50%;
     }
   }
 }

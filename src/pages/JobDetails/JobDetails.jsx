@@ -2,8 +2,10 @@
 //import { useParams } from "react-router";
 
 import { Link, useLocation } from "react-router";
+import { useAuth } from "../../provider/AuthProvider";
 
 const JobDetails = () => {
+  const { currentUser } = useAuth();
   const location = useLocation();
   const { job } = location.state || {};
 
@@ -42,18 +44,21 @@ const JobDetails = () => {
             <strong>Remote? </strong>
             {job["remote/not"] === "Remote" ? "yes" : "no"}
           </p>
-          <Link
-            className="btn btn-secondary btn-soft"
-            // onClick={() => navigate("../collections")}
-          >
-            <strong>Back to Collections</strong>
-          </Link>
+          <button className="btn btn-primary">
+            <Link to="/all-jobs">Back to Collections</Link>
+          </button>
           <button
+            disabled={!currentUser}
+            className="btn btn-primary disabled:cursor-not-allowed"
+          >
+            <Link to="">Apply for this job</Link>
+          </button>
+          {/* <button
             className="btn btn-accent btn-soft"
             // onClick={() => setShowMyModal(true)}
           >
             <strong>Leave a review</strong>
-          </button>
+          </button> */}
           {/* {submittedValue && <p>Submitted Value: {submittedValue}</p>} */}
           {/* showMyModal &&{" "}
           <MyModal setSubmittedValue={setSubmittedValue}></MyModal> */}
