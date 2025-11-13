@@ -14,7 +14,11 @@ const JobDetails = () => {
       <div className="mt-20 grid grid-cols-2">
         <img
           className="w-1/2 h-[350px] object-cover mx-auto"
-          src={job.coverImage}
+          src={
+            job.coverImage
+              ? job.coverImage
+              : "https://i.postimg.cc/23pKdgQk/dummy_category.jpg"
+          }
           alt=""
         />
         <div className="w-1/2 flex flex-col gap-2 text-black">
@@ -51,17 +55,8 @@ const JobDetails = () => {
             disabled={!currentUser}
             className="btn btn-primary disabled:cursor-not-allowed"
           >
-            <Link to="">Apply for this job</Link>
+            <Link to="/">Apply for this job</Link>
           </button>
-          {/* <button
-            className="btn btn-accent btn-soft"
-            // onClick={() => setShowMyModal(true)}
-          >
-            <strong>Leave a review</strong>
-          </button> */}
-          {/* {submittedValue && <p>Submitted Value: {submittedValue}</p>} */}
-          {/* showMyModal &&{" "}
-          <MyModal setSubmittedValue={setSubmittedValue}></MyModal> */}
         </div>
       </div>
     </div>
