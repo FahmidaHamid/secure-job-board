@@ -55,7 +55,7 @@ const Register = () => {
             //try-catch to add a new user
 
             const userData = { name, email, photoURL };
-            fetch("http://localhost:3000/users", {
+            fetch("https://career-bridge-server-fh-asgn10.vercel.app/users", {
               method: "POST", // The HTTP method
               headers: {
                 "content-type": "application/json", // Inform the server that the body is JSON

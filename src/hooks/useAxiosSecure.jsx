@@ -2,9 +2,10 @@ import axios from "axios";
 import { useAuth } from "../provider/AuthProvider";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://career-bridge-server-fh-asgn10.vercel.app",
 });
 
 const useAxiosSecure = () => {

@@ -6,7 +6,7 @@ const IntroduceOurselves = () => {
   const [topThreeJobs, setTopThreeJobs] = useState([]);
   useEffect(() => {
     try {
-      fetch(`http://localhost:3000/top-jobs`)
+      fetch(`https://career-bridge-server-fh-asgn10.vercel.app/top-jobs`)
         .then((res) => res.json())
         .then((data) => {
           setTopThreeJobs(data);

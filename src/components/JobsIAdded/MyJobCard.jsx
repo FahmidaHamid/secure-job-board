@@ -19,7 +19,7 @@ const MyJobCard = ({ job, addedJobs, setAddedJobs }) => {
       if (result.isConfirmed) {
         instance
           .delete(`/all-jobs/${_id}`)
-          // fetch(`http://localhost:3000/all-jobs/${_id}`, {
+          // fetch(`https://career-bridge-server-fh-asgn10.vercel.app/all-jobs/${_id}`, {
           //   method: "DELETE",
           // })
           //   .then((res) => res.json())
@@ -41,7 +41,7 @@ const MyJobCard = ({ job, addedJobs, setAddedJobs }) => {
   };
   return (
     <div className="flex basis-full sm:basis-1/3">
-      <div className="card card-side bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 shadow-lg border-2 border-blue-100">
+      <div className="card card-side bg-gradient-to-r from-green-200 to-blue-200 shadow-lg border-0 border-blue-100">
         <figure>
           <img
             src={

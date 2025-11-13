@@ -1,17 +1,31 @@
-# React + Vite
+Programming Assignment 10, Batch 12
+Solver: Fahmida Hamid
+Frontend: https://career-bridge-fh-assignment10.netlify.app/
+Backend: https://career-bridge-server-fh-asgn10.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Homepage:
+ Top>> navbar
+o Guest Account
+ 3 buttons: login via Google, login using email/password, register
+ 3 pages: Homepage, All Jobs, and About Us
+o Enrolled/Registered Account:
+ +2 extra pages: Post A Job, Profile
+ Hero banner >>
+o to the left, an image built with pixel transition component (hover effect: one side is the large logo, otherside is a black screen with some message/information about out platform)
+o to the right, 3 options:
+ login via Google, login using email/password, register (guest account)
+ 2 buttons: Post A job, Applied Jobs
+ Card >>
+o dynamically generated 6 cards displaying different job postings from various categories with some relevant information and job-related cover image (all loaded from the database via backend)
+ Scrolling card>>
+o Infinitely displaying the user reviews (cards with user names, short comments, account images)
+ Footer>>
+o Simple, static
+All Jobs
+ Guest Account can explore all the available job postings, check the details out, but cannot add/edit/update/apply for it (buttons disabled or options not available).
+ Enrolled/Registered Account can post new job, view total posted jobs by themselves, deleted some of their posted jobs, and, apply (add to their accounts) for some posted job as well. [update]
+Profile
+ Static, simple, shows the user name, email, profile picture and two buttons (display posted jobs and display applied jobs)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# secure-job-board
+From Guest Account:
+->3 options: login via Google, login using email/password, register

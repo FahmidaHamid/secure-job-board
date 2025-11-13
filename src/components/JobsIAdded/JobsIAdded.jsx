@@ -3,6 +3,7 @@ import { useAuth } from "../../provider/AuthProvider";
 import Loader from "../Loader/Loader";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import MyJobCard from "./MyJobCard";
+import { Link } from "react-router";
 
 const JobsIAdded = () => {
   const { currentUser, loading } = useAuth();
@@ -18,52 +19,28 @@ const JobsIAdded = () => {
     });
   }, [currentUser, instance]);
 
-  /*
-    {
-      headers: {
-        authorization: `Bearer ${currentUser.accessToken}`,
-      },
-    }
-  */
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/jobs-added?email=${currentUser.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setAddedJobs(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [currentUser]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "http://localhost:3000/jobs-added?email=${currentUser.email}"
-  //       ); // Replace with your actual API endpoint
-  //       setAddedJobs(response.data);
-  //     } catch (err) {
-  //       setError(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
   if (loading) return <Loader />;
   if (error) return <p>Error: {error.message}</p>;
 
-  // ... rest of your component
-
   return (
     <div className="mt-20 flex flex-1 flex-col m-10 p-2">
-      <h1 className="text-3xl">So far, I have added {addedJobs.length}</h1>
-      <div className="flex flex-1 flex-row flex-wrap gap-3">
+      <h1 className="text-3xl">
+        {currentUser.displayName}, you have added {addedJobs.length} jobs.
+      </h1>
+      <div className="flex flex-1 flex-row flex-wrap gap-3 m-5">
         {addedJobs.map((job) => (
-          <MyJobCard key={job._id} job={job} addedJobs={addedJobs} setAddedJobs={setAddedJobs}/>
+          <MyJobCard
+            key={job._id}
+            job={job}
+            addedJobs={addedJobs}
+            setAddedJobs={setAddedJobs}
+          />
         ))}
+      </div>
+      <div>
+        <Link to="/add-a-job">
+          <button className="btn btn-primary">Add Another Job</button>
+        </Link>
       </div>
     </div>
   );

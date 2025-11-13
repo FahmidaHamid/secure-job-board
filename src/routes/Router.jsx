@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         index: 1,
         Component: Home,
-        // loader: () => fetch("http://localhost:3000/all-categories"),
+        // loader: () => fetch("https://career-bridge-server-fh-asgn10.vercel.app/all-categories"),
       },
       {
         path: "/all-jobs",

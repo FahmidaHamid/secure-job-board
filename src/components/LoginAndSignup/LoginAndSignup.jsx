@@ -64,16 +64,16 @@ const LoginAndSignup = () => {
               {" "}
               <Link to="">
                 <p className="flex flex-1 gap-1 title-text font-bold">
-                  <FaCircleCheck size={24} className="text-blue-900" /> Check
-                  out new job postings
+                  <FaCircleCheck size={24} className="text-blue-900" /> Jobs I
+                  applied
                 </p>
               </Link>
             </button>
             <button className="btn btn-primary ">
-              <Link to="">
+              <Link to="/jobs-i-added">
                 <p className="flex flex-1 gap-1 title-text font-bold">
-                  <SiApostrophe size={24} className="text-blue-900" /> Post New
-                  Jobs
+                  <SiApostrophe size={24} className="text-blue-900" /> Jobs I
+                  posted
                 </p>
               </Link>
             </button>

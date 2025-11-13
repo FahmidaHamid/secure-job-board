@@ -8,7 +8,7 @@ const AllJobs = () => {
 
   useEffect(() => {
     try {
-      fetch("http://localhost:3000/all-categories")
+      fetch("https://career-bridge-server-fh-asgn10.vercel.app/all-categories")
         .then((res) => res.json())
         .then((data) => {
           setCategories(data);

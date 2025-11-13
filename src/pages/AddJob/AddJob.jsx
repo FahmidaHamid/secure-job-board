@@ -3,6 +3,7 @@ import { useAuth } from "../../provider/AuthProvider";
 import hero from "../../assets/libre-clip-art-sMufYKZ1JTw-unsplash.png";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+
 const AddJob = () => {
   const { currentUser } = useAuth();
   const instance = useAxiosSecure();
@@ -23,7 +24,7 @@ const AddJob = () => {
 
   useEffect(() => {
     try {
-      fetch("http://localhost:3000/all-categories")
+      fetch("https://career-bridge-server-fh-asgn10.vercel.app/all-categories")
         .then((res) => res.json())
         .then((data) => {
           setCategories(data);
@@ -76,36 +77,18 @@ const AddJob = () => {
       return;
     }
 
-    console.log("Submitting data to database:", formData);
+    //console.log("Submitting data to database:", JSON.stringify(formData));
     try {
-      // const response = await fetch("http://localhost:3000/all-jobs", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
-      const response = instance.post("/all-jobs", formData);
-
-      if (!response.ok) {
-        // throw new Error("Network Response Was Not Okay");
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: `Something went wrong: The network response was not okay.`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-
-      //const result = await response.json();
-      console.log("Success:", response);
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Excellent! A new job has been posted",
-        showConfirmButton: false,
-        timer: 1500,
+      instance.post("/all-jobs", formData).then((data) => {
+        if (data.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Excellent! A new job has been posted",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
 
       setFormData({
@@ -118,8 +101,15 @@ const AddJob = () => {
         category: "",
       });
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting the form.");
+      // console.error("Error submitting form:", error);
+      // alert("There was an error submitting the form.");
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "something went wrong...try again",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
   // Common Tailwind classes for standard inputs/textareas
@@ -202,7 +192,7 @@ const AddJob = () => {
                 type="text"
                 id="postedBy"
                 name="postedBy"
-                value={formData.postedBy}
+                //value={formData.postedBy}
                 onChange={handleInputChange}
                 className={inputClasses}
                 defaultValue={currentUser.displayName}

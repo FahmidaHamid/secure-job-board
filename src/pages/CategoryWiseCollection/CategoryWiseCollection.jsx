@@ -11,7 +11,7 @@ const CategoryWiseCollection = ({ cat }) => {
   useEffect(() => {
     if (!cat) {
       try {
-        fetch(`http://localhost:3000/all-jobs`)
+        fetch(`https://career-bridge-server-fh-asgn10.vercel.app/all-jobs`)
           .then((res) => res.json())
           .then((data) => {
             setFilteredData(data);
@@ -23,7 +23,9 @@ const CategoryWiseCollection = ({ cat }) => {
       }
     } else {
       try {
-        fetch(`http://localhost:3000/jobs-by-cat/${cat._id}`)
+        fetch(
+          `https://career-bridge-server-fh-asgn10.vercel.app/jobs-by-cat/${cat._id}`
+        )
           .then((res) => res.json())
           .then((data) => {
             setFilteredData(data);
